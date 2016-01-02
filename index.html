@@ -91,35 +91,36 @@ this.living = ['Monkey', 'Dog', 'Cat', 'Mouse'];
     <h3>$http</h3> Create an app hitting an api (swapi.co, birdapi.com, pokeapi, smurfs, marvel api, etc)
     <hr>
     <h4>Outcome</h4>
-<span class="codeOut">
-    <input ng-model="livingFilter"></input>
-<p ng-repeat="alive in living| filter: livingFilter">
-    {{alive}}
-</p>
+<span class="codeOut"><br>
+    <div id="log1"></div>
+<div id="log2"></div>
 </span>
     
     <hr>
     <h4>index.html</h4>
-    <pre class="codeOut" ng-non-bindable><span>&lt;input ng-model=&quot;livingFilter&quot;&gt;&lt;/input&gt;</span>
-<span class="gray">&lt;p ng-repeat="alive in living</span><span>| filter: livingFilter</span><span class="gray">"&gt;
-    {{alive}}</span>
-&lt;/p&gt;
+    <pre class="codeOut" ng-non-bindable>
+&lt;div id="log1"&gt;&lt;/div&gt;
+&lt;div id="log2"&gt;&lt;/div&gt;
     </pre>
     <hr>
         
     <h4>contorler.js</h4>
-    <pre class="gray" ng-non-bindable>
-$scope.living = myService.living;
+    <pre class="codeOut" ng-non-bindable>
+$scope.getUsers = myService.getUsers;
     </pre>
 <hr>
 
 <h4>service.js</h4>
-    <pre class="gray" ng-non-bindable>
-this.living = ['Monkey', 'Dog', 'Cat', 'Mouse'];
+    <pre class="codeOut" ng-non-bindable>
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://smurfs.devmounta.in/smurfs/", false);
+xhr.send();
+
+document.getElementById("log1").innerHTML=(xhr.status);
+document.getElementById("log2").innerHTML=(xhr.statusText);
     </pre>
 <hr class="thickHR">
-<div id="log1"></div>
-<div id="log2"></div>
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.js"></script>
